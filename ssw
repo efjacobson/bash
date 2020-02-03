@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if [ "$1" == "" ]; then
+  echo "You must enter trunk or something else to search by (ie a ticket number)"
+else
+  if [ "$1" == "trunk" ]; then
+    svn switch https://subversion.assembla.com/svn/crowd-fusion-tmz/trunk
+  else
+    svn switch https://subversion.assembla.com/svn/crowd-fusion-tmz/branches/$(svn list ^/branches | grep $1)
+  fi
+fi

@@ -1,0 +1,17 @@
+#! /bin/bash
+
+if [ -z "$1" ]; then
+  PROFILE="tmz-docker"
+else
+  PROFILE=$1
+fi
+
+if [ -z "$2" ]; then
+  REGION="us-west-2"
+else
+  REGION=$2
+fi
+
+#docker login
+`aws ecr get-login --no-include-email --region $REGION --profile $PROFILE`
+docker-compose up ; docker-compose down

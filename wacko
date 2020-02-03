@@ -1,0 +1,11 @@
+#! /bin/bash
+
+COMMITDIFF=$(git rev-list --left-right --count origin/release-next...origin/master)
+
+echo $COMMITDIFF
+
+if [[ $COMMITDIFF =~ 0$ ]]; then
+  echo "all good"
+else
+  echo "fucky"
+fi

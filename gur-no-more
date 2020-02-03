@@ -1,0 +1,18 @@
+#! /bin/bash
+
+BRANCH=$(git symbolic-ref --short HEAD)
+
+if [ "$1" == "release-next" ]; then
+  echo "you are on release-next dawg"
+else
+  if [[ -n $(git status -s) ]]; then
+    echo "clean up the repo bro"
+  else
+    git branch -D release-next
+    git fetch
+    git checkout release-next
+    git pull origin release-next
+    git checkout -- .
+    git checkout $BRANCH
+  fi
+fi

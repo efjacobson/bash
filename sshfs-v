@@ -1,0 +1,4 @@
+#! /bin/bash
+
+umount ~/v
+sshfs -p 22 ubuntu@v.com:/home/ubuntu/html ~/v -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=v

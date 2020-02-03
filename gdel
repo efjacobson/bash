@@ -1,0 +1,15 @@
+#! /bin/bash
+
+if [ "$1" == "" ]; then
+  echo "you must enter a branch name"
+else
+  if [ "$1" == "develop" ]; then
+    echo "don't delete develop, fool"
+  else
+    if [ "$1" == "master" ]; then
+      echo "don't delete master, fool"
+    else
+      git branch -D $1
+    fi
+  fi
+fi

@@ -1,0 +1,21 @@
+#! /bin/bash
+
+BRANCH=$(git symbolic-ref --short HEAD)
+COMMITDIFF=$(git rev-list --left-right --count origin/release-next...origin/master)
+
+git fetch
+
+if [ "1" != $(git ls-remote --exit-code --heads origin release-next | wc -l) ]; then
+  echo "there is no remote release-next, someone forgot to recreate it"
+else
+  if [[ $COMMITDIFF =~ 0$ ]]; then
+    git branch -D release-next
+    git checkout release-next
+    git pull origin release-next
+    git checkout $BRANCH
+    git merge release-next
+    git branch -D release-next
+  else
+    echo "release-next is fucked"
+  fi
+fi

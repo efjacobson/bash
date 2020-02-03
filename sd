@@ -1,0 +1,7 @@
+#! /bin/bash
+
+if [ "$1" == "" ]; then
+  svn diff
+else
+  svn diff $1
+fi

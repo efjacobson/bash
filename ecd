@@ -1,0 +1,61 @@
+#! /bin/bash
+
+case $1 in
+  admin-ui-plugin-js)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/admin-ui-plugin-js;
+    ;;
+  cms-js)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/cms-js;
+    ;;
+  curator-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/curator-php;
+    ;;
+  ovp-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/ovp-php;
+    ;;
+  tmz-ncr)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ncr;
+    ;;
+  tmz-pbjx)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-pbjx;
+    ;;
+  toofab-api)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-api;
+    ;;
+  toofab-core-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-core-php;
+    ;;
+  toofab-cms)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-cms;
+    ;;
+  toofab-schemas)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-schemas;
+    ;;
+  tmz-api)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-api;
+    ;;
+  tmz-cms)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-cms;
+    ;;
+  tmz-core-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-core-php;
+    ;;
+  tmz-feeds)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-feeds;
+    ;;
+  tmz-schemas)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-schemas;
+    ;;
+  tmz-web)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-web;
+    ;;
+  triniti/schemas)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/schemas;
+    ;;
+  wb-devops)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/wb-devops;
+    ;;
+  *)
+    echo "dunno what that is bro";
+    ;;
+esac

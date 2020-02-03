@@ -1,0 +1,16 @@
+#! /bin/bash
+
+if [ "$1" == "" ]; then
+  echo "gimme some arguments bro"
+else
+  mkdir event-temp
+  for var in "$@"
+  do
+    cp -r ../canvas/event event
+    find . -type f -print0 | xargs -0 sed -i '' "s/page/$var/g"
+    find . -depth -name "*page*" -execdir sh -c 'mv {} $(echo {} | sed "s/page/'$var'/")' \;
+    mv event/* event-temp/
+    rm -r event
+  done
+  mv event-temp event
+fi

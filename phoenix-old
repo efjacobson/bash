@@ -1,0 +1,15 @@
+#! /bin/bash
+
+kill $(ps aux | grep 'webpack' | awk '{print $2}')
+brew update
+brew upgrade
+brew cleanup
+# find /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-cms -name "package-lock.json" -type f -prune -exec rm -rf '{}' +
+# find /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-cms -name "yarn.lock" -type f -prune -exec rm -rf '{}' +
+find /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-cms -name "node_modules" -type d -prune -exec rm -rf '{}' +
+cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-cms
+source $(brew --prefix nvm)/nvm.sh
+nvm use
+yarn config set workspaces-experimental true
+yarn install
+yarn start
