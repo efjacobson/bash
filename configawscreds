@@ -2,18 +2,21 @@
 
 if [ -z "$1" ]; then
   echo "gotta enter an env duder"
-else
-  if [ $1 = "dev" ]; then
+  exit 1
+fi
+
+case $1 in
+  dev)
     rm ~/.aws/tmz-docker
     cp ~/.aws/BY_ENV/tmz-docker-dev ~/.aws/tmz-docker
-    echo "configured dev creds for tmz"
-  else
-    if [ $1 = "test" ]; then
-      rm ~/.aws/tmz-docker
-      cp ~/.aws/BY_ENV/tmz-docker-test ~/.aws/tmz-docker
-      echo "configured test creds for tmz"
-    else
-      echo "unknown env {$1}"
-    fi
-  fi
-fi
+    echo "copied dev creds for tmz"
+    ;;
+  test)
+    rm ~/.aws/tmz-docker
+    cp ~/.aws/BY_ENV/tmz-docker-test ~/.aws/tmz-docker
+    echo "copid test creds for tmz"
+    ;;
+  *)
+    echo "dunno what that is bro";
+    ;;
+esac
