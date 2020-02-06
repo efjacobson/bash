@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# use this to quickly figure out which article is breaking middleware
+# eg badmw COUNT="30" will fetch 30 articles from non-mw api and try each of them in mw to see which is broken
+
 for ARGUMENT in "$@"
 do
   KEY=$(echo $ARGUMENT | cut -f1 -d=)
