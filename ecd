@@ -10,8 +10,14 @@ case $1 in
   curator-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/curator-php;
     ;;
+  efjacobson)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/efjacobson;
+    ;;
   ovp-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/ovp-php;
+    ;;
+  playground)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/efjacobson/playground;
     ;;
   tmz-ncr)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ncr;

@@ -1,0 +1,21 @@
+#! /bin/bash
+
+for ARGUMENT in "$@"
+do
+  KEY=$(echo $ARGUMENT | cut -f1 -d=)
+  VALUE=$(echo $ARGUMENT | cut -f2 -d=)   
+
+  case "$KEY" in
+    COUNT)              COUNT=${VALUE} ;;
+    *)   
+  esac
+done
+
+IFS=$'\n'       # make newlines the only separator
+set -f          # disable globbing
+for i in $(curl "https://api.tmz.com/v2/featured/news/?count=$COUNT" | jq -r '.message.nodes | .[] | ._id'); do
+  RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://mw-api.tmz.com/api/v1/articles/$i?fields=all")
+  if [[ "${RESPONSE_CODE}" != 200 ]]; then
+    echo "the bad article id is: $i"
+  fi
+done
