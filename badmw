@@ -21,5 +21,7 @@ for i in $(curl "https://api.tmz.com/v2/featured/news/?count=$COUNT" | jq -r '.m
   if [[ "${RESPONSE_CODE}" != 200 ]]; then
     echo "the bad article id is: $i"
     break;
+  else
+    echo "checking..."
   fi
 done
