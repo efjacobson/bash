@@ -16,14 +16,26 @@ case $1 in
   ovp-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/ovp-php;
     ;;
+  pbj-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/gdbots/pbj-php;
+    ;;
   playground)
     cd /Users/xejacobs/Documents/TMZ\ Dev/efjacobson/playground;
+    ;;
+  tmz-amp)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-amp;
     ;;
   tmz-ncr)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ncr;
     ;;
+  tmz-ovp)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ovp;
+    ;;
   tmz-pbjx)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-pbjx;
+    ;;
+  tmz-share)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-share;
     ;;
   toofab-api)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-api;

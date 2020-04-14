@@ -1,17 +1,42 @@
 #! /bin/bash
 
-if [ -z "$1" ]; then
-  PROFILE="tmz-docker"
-else
-  PROFILE=$1
-fi
+PROFILE=tmz-docker
+REGION=us-west-2
 
-if [ -z "$2" ]; then
-  REGION="us-west-2"
-else
-  REGION=$2
-fi
+display_help () {
+  echo "
+Available options:
+  --profile   Profile name [default=tmz-docker]
+  --region    Region name [default=us-west-2]
+  --help      This message
+"
+}
+
+for opt in "$@"
+do
+case ${opt} in
+  --profile=*)
+    PROFILE=${opt#*=}
+  ;;
+  --region=*)
+    REGION=${opt#*=}
+  ;;
+  --help)
+    display_help
+    exit
+  ;;
+  *)
+  display_help
+  exit
+;;
+esac
+done
 
 #docker login
-`aws ecr get-login --no-include-email --region $REGION --profile $PROFILE`
-docker-compose up ; docker-compose down
+COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS 345746658229.dkr.ecr.$REGION.amazonaws.com"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="docker-compose up ; docker-compose down"
+echo "Running: $COMMAND"
+echo $COMMAND | bash

@@ -1,0 +1,17 @@
+#! /bin/bash
+
+if [ -z "$1" ]; then
+  PROFILE="tmz-docker"
+else
+  PROFILE=$1
+fi
+
+if [ -z "$2" ]; then
+  REGION="us-west-2"
+else
+  REGION=$2
+fi
+
+#docker login
+aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS 345746658229.dkr.ecr.$REGION.amazonaws.com
+docker-compose up ; docker-compose down

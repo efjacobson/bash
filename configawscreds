@@ -1,22 +1,37 @@
 #! /bin/bash
 
-if [ -z "$1" ]; then
-  echo "gotta enter an env duder"
-  exit 1
-fi
+VENDOR=tmz
+ENV=test
 
-case $1 in
-  dev)
-    rm ~/.aws/tmz-docker
-    cp ~/.aws/BY_ENV/tmz-docker-dev ~/.aws/tmz-docker
-    echo "copied dev creds for tmz"
-    ;;
-  test)
-    rm ~/.aws/tmz-docker
-    cp ~/.aws/BY_ENV/tmz-docker-test ~/.aws/tmz-docker
-    echo "copid test creds for tmz"
-    ;;
+display_help () {
+  echo "
+Available options:
+  --vendor    Vendor name [default=tmz]
+  --env       Environment name [default=test]
+  --help      This message
+"
+}
+
+for opt in "$@"
+do
+case ${opt} in
+  --vendor=*)
+    VENDOR=${opt#*=}
+  ;;
+  --env=*)
+    ENV=${opt#*=}
+  ;;
+  --help)
+    display_help
+    exit
+  ;;
   *)
-    echo "dunno what that is bro";
-    ;;
+  display_help
+  exit
+;;
 esac
+done
+
+rm "$HOME/.aws/$VENDOR-docker"
+cp "$HOME/.aws/BY_ENV/$VENDOR-docker-$ENV" "/Users/xejacobs/.aws/$VENDOR-docker"
+echo "copied $ENV creds for $VENDOR"
