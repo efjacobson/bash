@@ -1,0 +1,43 @@
+#! /bin/bash
+
+COMMAND="rm composer.lock"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="rm package-lock.json"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="rm -rf node_modules/"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="rm -rf vendor/"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+echo "Running: source $(brew --prefix nvm)/nvm.sh"
+source $(brew --prefix nvm)/nvm.sh
+
+echo "Running: nvm use"
+nvm use
+
+COMMAND="npm install"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="composer install"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="composer update"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="npm run build"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
+
+COMMAND="composer pbjc"
+echo "Running: $COMMAND"
+echo $COMMAND | bash

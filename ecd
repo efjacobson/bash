@@ -13,6 +13,9 @@ case $1 in
   efjacobson)
     cd /Users/xejacobs/Documents/TMZ\ Dev/efjacobson;
     ;;
+  dam-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/dam-php;
+    ;;
   ovp-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/ovp-php;
     ;;
@@ -48,6 +51,9 @@ case $1 in
     ;;
   toofab-schemas)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-schemas;
+    ;;
+  toofab-web)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-web;
     ;;
   tmz-api)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-api;
