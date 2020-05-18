@@ -3,21 +3,24 @@
 PROFILE=tmz-docker
 REGION=us-west-2
 
+
 display_help () {
   echo "
 Available options:
-  --profile   Profile name [default=tmz-docker]
   --region    Region name [default=us-west-2]
   --help      This message
 "
 }
 
+
+if [[ "$PWD" == *"toofab"* ]]; then
+  PROFILE=toofab-docker
+fi
+
+
 for opt in "$@"
 do
 case ${opt} in
-  --profile=*)
-    PROFILE=${opt#*=}
-  ;;
   --region=*)
     REGION=${opt#*=}
   ;;
@@ -31,6 +34,7 @@ case ${opt} in
 ;;
 esac
 done
+
 
 #docker login
 COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS 345746658229.dkr.ecr.$REGION.amazonaws.com"
