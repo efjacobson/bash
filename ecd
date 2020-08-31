@@ -7,14 +7,23 @@ case $1 in
   cms-js)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/cms-js;
     ;;
+  canvas-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/canvas-php;
+    ;;
   curator-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/curator-php;
     ;;
   efjacobson)
     cd /Users/xejacobs/Documents/TMZ\ Dev/efjacobson;
     ;;
+  notes)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/efjacobson/notes;
+    ;;
   dam-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/dam-php;
+    ;;
+  eme-api)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/eme-api;
     ;;
   ovp-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/ovp-php;
@@ -27,6 +36,9 @@ case $1 in
     ;;
   tmz-amp)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-amp;
+    ;;
+  tmz-app)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-app;
     ;;
   tmz-ncr)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ncr;

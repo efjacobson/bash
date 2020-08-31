@@ -1,0 +1,39 @@
+#! /bin/bash
+
+echo "good job"
+
+FILEPATH="/Volumes/bak/first_set_of_twenty_kaltura_videos_for_eric/first_set_of_twenty_kaltura_videos_for_eric.txt"
+
+
+display_help () {
+  echo "
+Available options:
+  --filepath    Region name [default=us-west-2]
+  --help    This message
+"
+}
+
+
+for opt in "$@"
+do
+case ${opt} in
+  --filepath=*)
+    FILEPATH=${opt#*=}
+  ;;
+  --help)
+    display_help
+    exit
+  ;;
+  *)
+  display_help
+  exit
+;;
+esac
+done
+
+while IFS= read -r LINE; do
+  FILENAME=`echo $LINE | sed -e 's/https.*\/fileName\///g'`
+  FILENAME=`echo $FILENAME | sed -e 's/\/name\/a\.mxf//g'`
+  echo $FILENAME
+  wget -O $FILENAME $LINE
+done < $FILEPATH

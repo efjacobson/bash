@@ -2,6 +2,7 @@
 
 PROFILE=tmz-docker
 REGION=us-west-2
+ACCOUNTID=345746658229
 
 
 display_help () {
@@ -15,6 +16,11 @@ Available options:
 
 if [[ "$PWD" == *"toofab"* ]]; then
   PROFILE=toofab-docker
+fi
+
+if [[ "$PWD" == *"eme"* ]]; then
+  PROFILE=eme-docker
+  ACCOUNTID=191377549562
 fi
 
 
@@ -37,7 +43,7 @@ done
 
 
 #docker login
-COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS 345746658229.dkr.ecr.$REGION.amazonaws.com"
+COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com"
 echo "Running: $COMMAND"
 echo $COMMAND | bash
 
