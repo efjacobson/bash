@@ -1,15 +1,13 @@
 #! /bin/bash
 
-echo "good job"
-
 FILEPATH="/Volumes/bak/first_set_of_twenty_kaltura_videos_for_eric/first_set_of_twenty_kaltura_videos_for_eric.txt"
 
 
 display_help () {
   echo "
 Available options:
-  --filepath    Region name [default=us-west-2]
-  --help    This message
+  --filepath    the path to the txt file that has the videos to be downloaded
+  --help        This message
 "
 }
 
