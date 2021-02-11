@@ -1,8 +1,56 @@
 #! /bin/bash
 
 case $1 in
+  tmz-android)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-android;
+    ;;
+  wb-apps)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps;
+    ;;
+  tmz-ios)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ios;
+    ;;
+  toofab-amp)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-amp;
+    ;;
+  toofab-feeds)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-feeds;
+    ;;
+  ncr-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/gdbots/ncr-php;
+    ;;
+  acme-schemas)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/acme-schemas;
+    ;;
+  core-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/core-php;
+    ;;
   admin-ui-plugin-js)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/admin-ui-plugin-js;
+    ;;
+  triniti)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti;
+    ;;
+  apple-news-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/apple-news-php;
+    ;;
+  apollo-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/apollo-php;
+    ;;
+  boost-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/boost-php;
+    ;;
+  people-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/people-php;
+    ;;
+  news-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/news-php;
+    ;;
+  sys-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/sys-php;
+    ;;
+  taxonomy-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/taxonomy-php;
     ;;
   cms-js)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/cms-js;
@@ -12,6 +60,9 @@ case $1 in
     ;;
   curator-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/curator-php;
+    ;;
+  notify-php)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/notify-php;
     ;;
   efjacobson)
     cd /Users/xejacobs/Documents/TMZ\ Dev/efjacobson;
@@ -23,7 +74,10 @@ case $1 in
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/dam-php;
     ;;
   eme-api)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/eme-api;
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-eme/eme-api;
+    ;;
+  eme-schemas)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-eme/eme-schemas;
     ;;
   ovp-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/triniti/ovp-php;

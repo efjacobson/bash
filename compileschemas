@@ -34,10 +34,10 @@ COMMAND="composer update"
 echo "Running: $COMMAND"
 echo $COMMAND | bash
 
-COMMAND="npm run build"
+COMMAND="composer pbjc"
 echo "Running: $COMMAND"
 echo $COMMAND | bash
 
-COMMAND="composer pbjc"
+COMMAND="npm run build"
 echo "Running: $COMMAND"
 echo $COMMAND | bash

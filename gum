@@ -1,4 +1,10 @@
 #! /bin/bash
 
 BRANCH=$(git symbolic-ref --short HEAD)
-git checkout master && git fetch && git pull origin master && git checkout $BRANCH
+IS_MASTER=$(git ls-remote --heads origin master)
+
+if [[ -z "$IS_MASTER" ]]; then
+  git checkout main && git fetch && git pull origin main && git checkout $BRANCH
+else
+  git checkout master && git fetch && git pull origin master && git checkout $BRANCH
+fi

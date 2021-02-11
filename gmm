@@ -1,3 +1,9 @@
 #! /bin/bash
 
-git merge master
+IS_MASTER=$(git ls-remote --heads origin master)
+
+if [[ -z "$IS_MASTER" ]]; then
+  git merge main
+else
+  git merge master
+fi
