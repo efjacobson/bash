@@ -4,6 +4,12 @@ case $1 in
   tmz-android)
     cd /Users/xejacobs/dev/tmz-apps/tmz-android;
     ;;
+  tmz-newsletter)
+    cd /Users/xejacobs/dev/tmz-apps/tmz-newsletter;
+    ;;
+  toofab-newsletter)
+    cd /Users/xejacobs/dev/tmz-apps/toofab-newsletter;
+    ;;
   wb-apps)
     cd /Users/xejacobs/dev/tmz-apps;
     ;;
