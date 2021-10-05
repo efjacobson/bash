@@ -2,12 +2,14 @@
 
 VENDOR=tmz
 ENV=test
+REGION=us-west-2
 
 display_help () {
   echo "
 Available options:
   --vendor    Vendor name [default=tmz]
   --env       Environment name [default=test]
+  --region    Region name [default=us-west-2]
   --help      This message
 "
 }
@@ -21,6 +23,9 @@ case ${opt} in
   --env=*)
     ENV=${opt#*=}
   ;;
+  --region=*)
+    REGION=${opt#*=}
+  ;;
   --help)
     display_help
     exit
@@ -33,5 +38,5 @@ esac
 done
 
 rm "$HOME/.aws/$VENDOR-docker"
-cp "$HOME/.aws/BY_ENV/$VENDOR-docker-$ENV" "/Users/xejacobs/.aws/$VENDOR-docker"
-echo "copied $ENV creds for $VENDOR"
+cp "$HOME/.aws/BY_ENV/$VENDOR-docker-$ENV-$REGION" "/Users/xejacobs/.aws/$VENDOR-docker"
+echo "copied $ENV $REGION creds for $VENDOR"

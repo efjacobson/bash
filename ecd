@@ -1,6 +1,12 @@
 #! /bin/bash
 
 case $1 in
+  ~/Desktop/) # lol
+    cd ~/Desktop/;
+    ;;
+  wb-lambda)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/wb-lambda;
+    ;;
   tmz-android)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-android;
     ;;
@@ -8,7 +14,10 @@ case $1 in
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps;
     ;;
   tmz-ios)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ios;
+    cd /Users/xejacobs/Documents/tmz-dev/wb-apps/tmz-ios;
+    ;;
+  tcd-cms)
+    cd /Users/xejacobs/Documents/tmz-dev/wb-apps/tcd-cms;
     ;;
   toofab-amp)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-amp;
@@ -92,7 +101,7 @@ case $1 in
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-amp;
     ;;
   tmz-app)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-app;
+    cd /Users/xejacobs/Documents/tmz-dev/wb-apps/tmz-app;
     ;;
   tmz-ncr)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-ncr;
@@ -103,11 +112,20 @@ case $1 in
   tmz-pbjx)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-pbjx;
     ;;
+  toofab-pbjx)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-pbjx;
+    ;;
+  toofab-ncr)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-ncr;
+    ;;
   tmz-share)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-share;
     ;;
   toofab-api)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-api;
+    ;;
+  toofab-share)
+    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-share;
     ;;
   toofab-core-php)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-core-php;
@@ -122,7 +140,7 @@ case $1 in
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-web;
     ;;
   tmz-api)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-api;
+    cd /Users/xejacobs/Documents/TMZ\ Dev/tmz-apps/tmz-api;
     ;;
   tmz-cms)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/tmz-cms;
