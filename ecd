@@ -7,8 +7,14 @@ case $1 in
   wb-lambda)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/wb-lambda;
     ;;
+  tmz-apps)
+    cd /Users/xejacobs/dev/tmz-apps;
+    ;;
   tmz-android)
     cd /Users/xejacobs/dev/tmz-apps/tmz-android;
+    ;;
+  tmz-devops)
+    cd /Users/xejacobs/dev/tmz-apps/tmz-devops;
     ;;
   tmz-newsletter)
     cd /Users/xejacobs/dev/tmz-apps/tmz-newsletter;
@@ -119,10 +125,10 @@ case $1 in
     cd /Users/xejacobs/dev/tmz-apps/tmz-pbjx;
     ;;
   toofab-pbjx)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-pbjx;
+    cd /Users/xejacobs/dev/tmz-apps/toofab-pbjx;
     ;;
   toofab-ncr)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-ncr;
+    cd /Users/xejacobs/dev/tmz-apps/toofab-ncr;
     ;;
   tmz-share)
     cd /Users/xejacobs/dev/tmz-apps/tmz-share;
@@ -131,7 +137,7 @@ case $1 in
     cd /Users/xejacobs/dev/tmz-apps/toofab-api;
     ;;
   toofab-share)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/toofab-share;
+    cd /Users/xejacobs/dev/tmz-apps/toofab-share;
     ;;
   toofab-core-php)
     cd /Users/xejacobs/dev/tmz-apps/toofab-core-php;

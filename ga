@@ -2,6 +2,10 @@
 
 if [ "$1" == "" ]; then
   git add -A
+  FILE="$(pwd)/provisioning/docker/environment.sh"
+  if [ -f "$FILE" ]; then
+      git restore --staged $FILE
+  fi
 else
   git add $1
 fi

@@ -3,11 +3,13 @@
 PROFILE=tmz-docker
 REGION=us-west-2
 ACCOUNTID=345746658229
+BUILD=''
 
 
 display_help () {
   echo "
 Available options:
+  --build     If you want to build the container as it is brought up
   --region    Region name [default=us-west-2]
   --help      This message
 "
@@ -30,6 +32,9 @@ case ${opt} in
   --region=*)
     REGION=${opt#*=}
   ;;
+  --build)
+    BUILD='--build'
+  ;;
   --help)
     display_help
     exit
@@ -47,6 +52,6 @@ COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker
 echo "Running: $COMMAND"
 echo $COMMAND | bash
 
-COMMAND="docker-compose up ; docker-compose down"
+COMMAND="docker-compose up $BUILD ; docker-compose down"
 echo "Running: $COMMAND"
 echo $COMMAND | bash
