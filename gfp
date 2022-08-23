@@ -1,3 +1,16 @@
 #! /bin/bash
 
-git fetch && git pull origin $(git symbolic-ref --short HEAD) --no-rebase
+# FILE="$(pwd)/provisioning/docker/environment.sh"
+# if [ -f "$FILE" ]; then
+#   git stash push $FILE
+# fi
+
+git fetch
+
+git pull origin $(git symbolic-ref --short HEAD) --no-rebase
+
+# if [ -f "$FILE" ]; then
+#   git stash pop
+# fi
+
+# fixme: should only pop if it has only environment.sh in it

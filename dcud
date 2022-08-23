@@ -46,12 +46,16 @@ case ${opt} in
 esac
 done
 
+# if ! docker info > /dev/null 2>&1; then
+#   open -a Docker
+# fi
 
 #docker login
 COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com"
 echo "Running: $COMMAND"
 echo $COMMAND | bash
 
+# docker kill $(docker ps -q)
 COMMAND="docker-compose up $BUILD ; docker-compose down"
 echo "Running: $COMMAND"
 echo $COMMAND | bash

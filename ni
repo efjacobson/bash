@@ -1,5 +1,8 @@
 #! /bin/bash
 
-source $(brew --prefix nvm)/nvm.sh
-nvm use
-npm i
+ if [[ -f .nvmrc ]]; then
+	source $(brew --prefix nvm)/nvm.sh
+	nvm use
+ fi
+
+ npm i

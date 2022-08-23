@@ -1,0 +1,7 @@
+#! /bin/bash
+
+if [ "$1" != "" ]; then
+  echo "dont enter a file name chucklehead, this is for getting rid of everything"
+else
+  git checkout -- .
+fi

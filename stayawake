@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# keep the damn macbook from sleeping while running a long script
+
+echo "repeat while true
+delay 60
+tell application \"System Events\" to keystroke \".\"
+end repeat" | osascript

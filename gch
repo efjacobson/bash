@@ -3,5 +3,12 @@
 if [ "$1" != "" ]; then
   echo "dont enter a file name chucklehead, this is for getting rid of everything"
 else
+  FILE="$(pwd)/provisioning/docker/environment.sh"
+  if [ -f "$FILE" ]; then
+      git stash push $FILE
+  fi
   git checkout -- .
+  if [ -f "$FILE" ]; then
+      git stash pop
+  fi
 fi

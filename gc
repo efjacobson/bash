@@ -3,5 +3,13 @@
 if [ "$1" == "" ]; then
   echo "you must enter a branch name"
 else
+  # FILE="$(pwd)/provisioning/docker/environment.sh"
+  # if [ -f "$FILE" ]; then
+  #     git stash push $FILE
+  # fi
   git checkout $1
+  # if [ -f "$FILE" ]; then
+  #     git stash pop
+  # fi
+  # fixme: only do it if environment.sh is the only stashed file
 fi
