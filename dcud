@@ -50,6 +50,10 @@ done
 #   open -a Docker
 # fi
 
+rm -rf var
+git checkout var/.gitkeep
+sleep 5
+
 #docker login
 COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com"
 echo "Running: $COMMAND"

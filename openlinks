@@ -1,0 +1,48 @@
+#! /bin/bash
+
+append=''
+
+display_help () {
+  echo "
+Available options:
+  --pr     If you want to list pull requests
+  --help      This message
+"
+}
+
+for opt in "$@"
+do
+case ${opt} in
+  -p|--pull-requests)
+    append='pulls/'
+  ;;
+  --help)
+    display_help
+    exit
+  ;;
+  *)
+  display_help
+  exit
+;;
+esac
+done
+
+repo() {
+  if [ -n "$2" ]; then
+    open -a "Brave Browser" -n --args --new-tab "https://github.com/tmz-apps/$1-$2/$append"
+    return;
+  fi
+
+  apps=( amp api cms feeds ncr pbjx share web )
+
+  for app in "${apps[@]}"
+  do
+    open -a "Brave Browser" -n --args --new-tab "https://github.com/tmz-apps/$1-$app/$append"
+
+  done
+}
+
+repo tmz
+repo tmz ovp
+repo tmz app
+repo toofab

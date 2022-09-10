@@ -4,6 +4,9 @@ case $1 in
   ~/Desktop/) # lol
     cd ~/Desktop/;
     ;;
+  bin)
+    cd ~/bin/;
+    ;;
   wb-lambda)
     cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/wb-lambda;
     ;;
@@ -90,6 +93,9 @@ case $1 in
     ;;
   notes)
     cd /Users/xejacobs/dev/efjacobson/notes;
+    ;;
+  dev)
+    cd /Users/xejacobs/dev;
     ;;
   dam-php)
     cd /Users/xejacobs/dev/triniti/dam-php;

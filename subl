@@ -1,1 +1,3 @@
-/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl
+#! /bin/bash
+
+'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a "$1"
