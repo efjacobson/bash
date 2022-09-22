@@ -40,3 +40,7 @@ done
 rm "$HOME/.aws/$VENDOR-docker"
 cp "$HOME/.aws/BY_ENV/$VENDOR-docker-$ENV-$REGION" "/Users/xejacobs/.aws/$VENDOR-docker"
 echo "copied $ENV $REGION creds for $VENDOR"
+echo ""
+echo "$HOME/.aws/$VENDOR-docker:"
+echo ""
+echo "$(cat "$HOME/.aws/$VENDOR-docker")"

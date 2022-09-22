@@ -1,0 +1,77 @@
+#! /bin/bash
+
+origin='2333-homepage-redesign-us-west-2.www.dev.tmz.com'
+# origin='www.tmz.com'
+unique_responses=()
+distinct_requests=(
+  "curl -si 'https://$origin/?device_view=smartphone'"
+  "curl -si 'https://$origin/' -H 'cookie: device_view=smartphone'"
+  "curl -si 'https://$origin/?device_view=tablet'"
+  "curl -si 'https://$origin/' -H 'cookie: device_view=tablet'"
+  "curl -si 'https://$origin/?device_view=desktop'"
+  "curl -si 'https://$origin/' -H 'cookie: device_view=desktop'"
+#
+  "curl -si 'https://$origin/beta/?device_view=smartphone'"
+  "curl -si 'https://$origin/beta/' -H 'cookie: device_view=smartphone'"
+  "curl -si 'https://$origin/beta/?device_view=tablet'"
+  "curl -si 'https://$origin/beta/' -H 'cookie: device_view=tablet'"
+  "curl -si 'https://$origin/beta/?device_view=desktop'"
+  "curl -si 'https://$origin/beta/' -H 'cookie: device_view=desktop'"
+
+#   "curl -si 'https://$origin/?device_view=smartphone' -H 'cookie: beta_homepage=true'"
+#   "curl -si 'https://$origin/' -H 'cookie: device_view=smartphone; beta_homepage=true'"
+#   "curl -si 'https://$origin/?device_view=tablet' -H 'cookie: beta_homepage=true'"
+#   "curl -si 'https://$origin/' -H 'cookie: device_view=tablet; beta_homepage=true'"
+  "curl -si 'https://$origin/?device_view=desktop' -H 'cookie: beta_homepage=true'"
+  "curl -si 'https://$origin/' -H 'cookie: device_view=desktop; beta_homepage=true'"
+#
+#   "curl -si 'https://$origin/beta/?device_view=smartphone' -H 'cookie: beta_homepage=true'"
+#   "curl -si 'https://$origin/beta/' -H 'cookie: device_view=smartphone; beta_homepage=true'"
+#   "curl -si 'https://$origin/beta/?device_view=tablet' -H 'cookie: beta_homepage=true'"
+#   "curl -si 'https://$origin/beta/' -H 'cookie: device_view=tablet; beta_homepage=true'"
+  "curl -si 'https://$origin/beta/?device_view=desktop' -H 'cookie: beta_homepage=true'"
+  "curl -si 'https://$origin/beta/' -H 'cookie: device_view=desktop; beta_homepage=true'"
+)
+
+is_ok=true;
+for distinct_request in "${distinct_requests[@]}"
+do
+    response="$(eval "$distinct_request")"
+    fpc_key=$(echo "$response" | grep 'x-fpc-key')
+    if [[ ! " ${unique_responses[*]} " =~ " ${fpc_key} " ]]; then
+        unique_responses+=("$fpc_key")
+    else
+    is_ok=false
+        echo "not distinct! $distinct_request"
+    fi
+done
+
+if [ "$is_ok" = true ]; then
+    echo 'all good!'
+fi
+
+# for unique_response in "${unique_responses[@]}"
+# do
+#     echo "$unique_response"
+# done
+
+
+# for three_hundred_and_one in "${three_hundred_and_ones[@]}"
+# do
+# resp="$(eval "$three_hundred_and_one" | grep HTTP)"
+#   if [ -z "$(echo "$resp" | grep 301)" ]; then
+#     echo "fuck: $three_hundred_and_one should be a 301, it was $resp"
+#   # else
+#   #   echo "$three_hundred_and_one is good"
+#   fi
+# done
+
+# for three_hundred_and_two in "${three_hundred_and_twos[@]}"
+# do
+#     resp="$(eval "$three_hundred_and_two" | grep HTTP)"
+#    if [ -z "$(echo "$resp" | grep 302)" ]; then
+#     echo "fuck: $three_hundred_and_two should be a 302, it was $resp"
+#   # else
+#   #   echo "$three_hundred_and_two is good"
+#   fi
+# done

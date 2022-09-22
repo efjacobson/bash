@@ -54,6 +54,9 @@ rm -rf var
 git checkout var/.gitkeep
 sleep 5
 
+vhost_file='provisioning/docker/vhost.conf.tpl'
+sed 's|RewriteRule . https://|RewriteRule . http://|g' "$vhost_file" > "$vhost_file".what && mv "$vhost_file".what "$vhost_file"
+
 #docker login
 COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com"
 echo "Running: $COMMAND"

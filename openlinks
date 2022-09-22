@@ -5,16 +5,23 @@ append=''
 display_help () {
   echo "
 Available options:
-  --pr     If you want to list pull requests
-  --help      This message
+  --pull-requests
+   -pr                If you want to list pull requests
+  --branches
+   -b                 If you want to list branches
+  --help
+   -h                 This message
 "
 }
 
 for opt in "$@"
 do
 case ${opt} in
-  -p|--pull-requests)
+  -pr|--pull-requests)
     append='pulls/'
+  ;;
+  -b|--branch)
+    append='branches/'
   ;;
   --help)
     display_help
@@ -27,19 +34,21 @@ case ${opt} in
 esac
 done
 
-repo() {
-  if [ -n "$2" ]; then
-    open -a "Brave Browser" -n --args --new-tab "https://github.com/tmz-apps/$1-$2/$append"
-    return;
+function repo() {
+  vendor="$1"
+  custom_repo="$2"
+  if [ -n "$custom_repo" ]; then
+    open -a "Brave Browser" -n --args --new-tab "https://github.com/tmz-apps/$vendor-$custom_repo/$append"
+    return 0;
   fi
 
   apps=( amp api cms feeds ncr pbjx share web )
 
   for app in "${apps[@]}"
   do
-    open -a "Brave Browser" -n --args --new-tab "https://github.com/tmz-apps/$1-$app/$append"
-
+    open -a "Brave Browser" -n --args --new-tab "https://github.com/tmz-apps/$vendor-$app/$append"
   done
+  return 0;
 }
 
 repo tmz
