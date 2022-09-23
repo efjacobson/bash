@@ -1,3 +1,1 @@
-#! /bin/bash
-
-tmux new-session "tmux source-file ~/.tmux.session.0"
+/Users/xejacobs/dev/efjacobson/sys/WTMZ-TMZ006298/bin/bash/t.bash
