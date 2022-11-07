@@ -1,18 +1,1 @@
-#! /bin/bash
-
-declare ignores=(
-  'provisioning/docker/environment.sh'
-  'provisioning/docker/vhost.conf.tpl'
-)
-
-if [ "$1" != "" ]; then
-  git add "$1"
-else
-  git add -A
-
-  for ignore in "${ignores[@]}"; do
-    if [ -f "$ignore" ]; then
-      git restore --staged $ignore
-    fi
-  done
-fi
+/Users/xejacobs/dev/efjacobson/sys/common/bin/bash/ga.bash

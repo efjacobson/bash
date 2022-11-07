@@ -5,8 +5,7 @@ REGION=us-west-2
 ACCOUNTID=345746658229
 BUILD=''
 
-
-display_help () {
+display_help() {
   echo "
 Available options:
   --build     If you want to build the container as it is brought up
@@ -14,7 +13,6 @@ Available options:
   --help      This message
 "
 }
-
 
 if [[ "$PWD" == *"toofab"* ]]; then
   PROFILE=toofab-docker
@@ -25,37 +23,35 @@ if [[ "$PWD" == *"eme"* ]]; then
   ACCOUNTID=191377549562
 fi
 
-
-for opt in "$@"
-do
-case ${opt} in
+for opt in "$@"; do
+  case ${opt} in
   --region=*)
     REGION=${opt#*=}
-  ;;
+    ;;
   --build)
     BUILD='--build'
-  ;;
+    ;;
   --help)
     display_help
     exit
-  ;;
+    ;;
   *)
-  display_help
-  exit
-;;
-esac
+    display_help
+    exit
+    ;;
+  esac
 done
 
 # if ! docker info > /dev/null 2>&1; then
 #   open -a Docker
 # fi
 
-rm -rf var
-git checkout var/.gitkeep
-sleep 5
+# rm -rf var
+# git checkout var/.gitkeep
+# sleep 5
 
 vhost_file='provisioning/docker/vhost.conf.tpl'
-sed 's|RewriteRule . https://|RewriteRule . http://|g' "$vhost_file" > "$vhost_file".what && mv "$vhost_file".what "$vhost_file"
+sed 's|RewriteRule . https://|RewriteRule . http://|g' "$vhost_file" >"$vhost_file".what && mv "$vhost_file".what "$vhost_file"
 
 #docker login
 COMMAND="aws ecr get-login-password --region $REGION --profile $PROFILE | docker login --password-stdin --username AWS $ACCOUNTID.dkr.ecr.$REGION.amazonaws.com"

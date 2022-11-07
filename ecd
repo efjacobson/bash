@@ -1,187 +1,213 @@
 #! /bin/bash
 
+rig=$(hostname)
+if [ 'WTMZ-TMZ006298' != "$rig" ]; then
+  echo "not yet implemented for $rig"
+  exit 1
+fi
+
+dev_path=''
+case "$rig" in
+WTMZ-TMZ006298)
+  dev_path='/Users/xejacobs/dev'
+  ;;
+*)
+  echo "not yet implemented for $rig"
+  exit 1
+  ;;
+esac
+
 case $1 in
-  ~/Desktop/) # lol
-    cd ~/Desktop/;
-    ;;
-  bin)
-    cd ~/bin/;
-    ;;
-  wb-lambda)
-    cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/wb-lambda;
-    ;;
-  tmz-apps)
-    cd /Users/xejacobs/dev/tmz-apps;
-    ;;
-  tmz-android)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-android;
-    ;;
-  tmz-devops)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-devops;
-    ;;
-  tmz-newsletter)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-newsletter;
-    ;;
-  toofab-newsletter)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-newsletter;
-    ;;
-  wb-apps)
-    cd /Users/xejacobs/dev/tmz-apps;
-    ;;
-  tmz-ios)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-ios;
-    ;;
-  tcd-cms)
-    cd /Users/xejacobs/dev/wb-apps/tcd-cms;
-    ;;
-  toofab-amp)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-amp;
-    ;;
-  toofab-feeds)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-feeds;
-    ;;
-  ncr-php)
-    cd /Users/xejacobs/dev/gdbots/ncr-php;
-    ;;
-  acme-schemas)
-    cd /Users/xejacobs/dev/triniti/acme-schemas;
-    ;;
-  core-php)
-    cd /Users/xejacobs/dev/triniti/core-php;
-    ;;
-  admin-ui-plugin-js)
-    cd /Users/xejacobs/dev/triniti/admin-ui-plugin-js;
-    ;;
-  triniti)
-    cd /Users/xejacobs/dev/triniti;
-    ;;
-  apple-news-php)
-    cd /Users/xejacobs/dev/triniti/apple-news-php;
-    ;;
-  apollo-php)
-    cd /Users/xejacobs/dev/triniti/apollo-php;
-    ;;
-  boost-php)
-    cd /Users/xejacobs/dev/triniti/boost-php;
-    ;;
-  people-php)
-    cd /Users/xejacobs/dev/triniti/people-php;
-    ;;
-  news-php)
-    cd /Users/xejacobs/dev/triniti/news-php;
-    ;;
-  sys-php)
-    cd /Users/xejacobs/dev/triniti/sys-php;
-    ;;
-  taxonomy-php)
-    cd /Users/xejacobs/dev/triniti/taxonomy-php;
-    ;;
-  cms-js)
-    cd /Users/xejacobs/dev/triniti/cms-js;
-    ;;
-  canvas-php)
-    cd /Users/xejacobs/dev/triniti/canvas-php;
-    ;;
-  curator-php)
-    cd /Users/xejacobs/dev/triniti/curator-php;
-    ;;
-  notify-php)
-    cd /Users/xejacobs/dev/triniti/notify-php;
-    ;;
-  efjacobson)
-    cd /Users/xejacobs/dev/efjacobson;
-    ;;
-  notes)
-    cd /Users/xejacobs/dev/efjacobson/notes;
-    ;;
-  dev)
-    cd /Users/xejacobs/dev;
-    ;;
-  dam-php)
-    cd /Users/xejacobs/dev/triniti/dam-php;
-    ;;
-  eme-api)
-    cd /Users/xejacobs/dev/wb-eme/eme-api;
-    ;;
-  eme-schemas)
-    cd /Users/xejacobs/dev/wb-eme/eme-schemas;
-    ;;
-  ovp-php)
-    cd /Users/xejacobs/dev/triniti/ovp-php;
-    ;;
-  pbj-php)
-    cd /Users/xejacobs/dev/gdbots/pbj-php;
-    ;;
-  playground)
-    cd /Users/xejacobs/dev/efjacobson/playground;
-    ;;
-  tmz-amp)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-amp;
-    ;;
-  tmz-app)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-app;
-    ;;
-  tmz-ncr)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-ncr;
-    ;;
-  tmz-ovp)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-ovp;
-    ;;
-  tmz-pbjx)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-pbjx;
-    ;;
-  toofab-pbjx)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-pbjx;
-    ;;
-  toofab-ncr)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-ncr;
-    ;;
-  tmz-share)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-share;
-    ;;
-  toofab-api)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-api;
-    ;;
-  toofab-share)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-share;
-    ;;
-  toofab-core-php)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-core-php;
-    ;;
-  toofab-cms)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-cms;
-    ;;
-  toofab-schemas)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-schemas;
-    ;;
-  toofab-web)
-    cd /Users/xejacobs/dev/tmz-apps/toofab-web;
-    ;;
-  tmz-api)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-api;
-    ;;
-  tmz-cms)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-cms;
-    ;;
-  tmz-core-php)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-core-php;
-    ;;
-  tmz-feeds)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-feeds;
-    ;;
-  tmz-schemas)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-schemas;
-    ;;
-  tmz-web)
-    cd /Users/xejacobs/dev/tmz-apps/tmz-web;
-    ;;
-  triniti/schemas)
-    cd /Users/xejacobs/dev/triniti/schemas;
-    ;;
-  wb-devops)
-    cd /Users/xejacobs/dev/tmz-apps/wb-devops;
-    ;;
-  *)
-    echo "dunno what that is bro";
-    ;;
+~/Desktop/) # lol
+  cd ~/Desktop/
+  ;;
+scratch)
+  cd ~/scratch/
+  ;;
+abr)
+  cd "$dev_path"/efjacobson/abr
+  ;;
+bin)
+  cd ~/bin/
+  ;;
+wb-lambda)
+  cd /Users/xejacobs/Documents/TMZ\ Dev/wb-apps/wb-lambda
+  ;;
+tmz-apps)
+  cd "$dev_path"/tmz-apps
+  ;;
+tmz-android)
+  cd "$dev_path"/tmz-apps/tmz-android
+  ;;
+tmz-devops)
+  cd "$dev_path"/tmz-apps/tmz-devops
+  ;;
+tmz-newsletter)
+  cd "$dev_path"/tmz-apps/tmz-newsletter
+  ;;
+toofab-newsletter)
+  cd "$dev_path"/tmz-apps/toofab-newsletter
+  ;;
+wb-apps)
+  cd "$dev_path"/tmz-apps
+  ;;
+tmz-ios)
+  cd "$dev_path"/tmz-apps/tmz-ios
+  ;;
+tcd-cms)
+  cd "$dev_path"/wb-apps/tcd-cms
+  ;;
+toofab-amp)
+  cd "$dev_path"/tmz-apps/toofab-amp
+  ;;
+toofab-feeds)
+  cd "$dev_path"/tmz-apps/toofab-feeds
+  ;;
+ncr-php)
+  cd "$dev_path"/gdbots/ncr-php
+  ;;
+acme-schemas)
+  cd "$dev_path"/triniti/acme-schemas
+  ;;
+core-php)
+  cd "$dev_path"/triniti/core-php
+  ;;
+admin-ui-plugin-js)
+  cd "$dev_path"/triniti/admin-ui-plugin-js
+  ;;
+triniti)
+  cd "$dev_path"/triniti
+  ;;
+apple-news-php)
+  cd "$dev_path"/triniti/apple-news-php
+  ;;
+apollo-php)
+  cd "$dev_path"/triniti/apollo-php
+  ;;
+boost-php)
+  cd "$dev_path"/triniti/boost-php
+  ;;
+people-php)
+  cd "$dev_path"/triniti/people-php
+  ;;
+news-php)
+  cd "$dev_path"/triniti/news-php
+  ;;
+sys-php)
+  cd "$dev_path"/triniti/sys-php
+  ;;
+taxonomy-php)
+  cd "$dev_path"/triniti/taxonomy-php
+  ;;
+cms-js)
+  cd "$dev_path"/triniti/cms-js
+  ;;
+canvas-php)
+  cd "$dev_path"/triniti/canvas-php
+  ;;
+curator-php)
+  cd "$dev_path"/triniti/curator-php
+  ;;
+notify-php)
+  cd "$dev_path"/triniti/notify-php
+  ;;
+efjacobson)
+  cd "$dev_path"/efjacobson
+  ;;
+notes)
+  cd "$dev_path"/efjacobson/notes
+  ;;
+sys)
+  cd "$dev_path"/efjacobson/sys
+  ;;
+dev)
+  cd /Users/xejacobs/dev
+  ;;
+dam-php)
+  cd "$dev_path"/triniti/dam-php
+  ;;
+eme-api)
+  cd "$dev_path"/wb-eme/eme-api
+  ;;
+eme-schemas)
+  cd "$dev_path"/wb-eme/eme-schemas
+  ;;
+ovp-php)
+  cd "$dev_path"/triniti/ovp-php
+  ;;
+pbj-php)
+  cd "$dev_path"/gdbots/pbj-php
+  ;;
+playground)
+  cd "$dev_path"/efjacobson/playground
+  ;;
+tmz-amp)
+  cd "$dev_path"/tmz-apps/tmz-amp
+  ;;
+tmz-app)
+  cd "$dev_path"/tmz-apps/tmz-app
+  ;;
+tmz-ncr)
+  cd "$dev_path"/tmz-apps/tmz-ncr
+  ;;
+tmz-ovp)
+  cd "$dev_path"/tmz-apps/tmz-ovp
+  ;;
+tmz-pbjx)
+  cd "$dev_path"/tmz-apps/tmz-pbjx
+  ;;
+toofab-pbjx)
+  cd "$dev_path"/tmz-apps/toofab-pbjx
+  ;;
+toofab-ncr)
+  cd "$dev_path"/tmz-apps/toofab-ncr
+  ;;
+tmz-share)
+  cd "$dev_path"/tmz-apps/tmz-share
+  ;;
+toofab-api)
+  cd "$dev_path"/tmz-apps/toofab-api
+  ;;
+toofab-share)
+  cd "$dev_path"/tmz-apps/toofab-share
+  ;;
+toofab-core-php)
+  cd "$dev_path"/tmz-apps/toofab-core-php
+  ;;
+toofab-cms)
+  cd "$dev_path"/tmz-apps/toofab-cms
+  ;;
+toofab-schemas)
+  cd "$dev_path"/tmz-apps/toofab-schemas
+  ;;
+toofab-web)
+  cd "$dev_path"/tmz-apps/toofab-web
+  ;;
+tmz-api)
+  cd "$dev_path"/tmz-apps/tmz-api
+  ;;
+tmz-cms)
+  cd "$dev_path"/tmz-apps/tmz-cms
+  ;;
+tmz-core-php)
+  cd "$dev_path"/tmz-apps/tmz-core-php
+  ;;
+tmz-feeds)
+  cd "$dev_path"/tmz-apps/tmz-feeds
+  ;;
+tmz-schemas)
+  cd "$dev_path"/tmz-apps/tmz-schemas
+  ;;
+tmz-web)
+  cd "$dev_path"/tmz-apps/tmz-web
+  ;;
+triniti/schemas)
+  cd "$dev_path"/triniti/schemas
+  ;;
+wb-devops)
+  cd "$dev_path"/tmz-apps/wb-devops
+  ;;
+*)
+  echo "dunno what that is bro"
+  ;;
 esac

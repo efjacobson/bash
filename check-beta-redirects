@@ -1,0 +1,102 @@
+#! /bin/bash
+
+main() {
+  origin="$1"
+  if [ '' == "$origin" ]; then
+    origin='http://localhost'
+  fi
+
+  bad_three_o_ones=()
+  three_o_ones=(
+    "curl -si '$origin/beta/?device_view=desktop'"
+    "curl -si '$origin/beta/?device_view=smartphone' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/beta/?device_view=smartphone'"
+    "curl -si '$origin/beta/?device_view=tablet'"
+
+    "curl -si '$origin/beta/' -H 'cookie: device_view=desktop'"
+    "curl -si '$origin/beta/' -H 'cookie: device_view=smartphone; beta_homepage=true'"
+    "curl -si '$origin/beta/' -H 'cookie: device_view=smartphone'"
+    "curl -si '$origin/beta/' -H 'cookie: device_view=tablet'"
+  )
+
+  bad_three_o_twos=()
+  three_o_twos=(
+    "curl -si '$origin/?device_view=desktop' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/?device_view=tablet' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/' -H 'cookie: device_view=desktop; beta_homepage=true'"
+    "curl -si '$origin/' -H 'cookie: device_view=tablet; beta_homepage=true'"
+
+    "curl -si '$origin/beta?device_view=desktop' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/beta?device_view=tablet' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/beta' -H 'cookie: device_view=desktop; beta_homepage=true'"
+    "curl -si '$origin/beta' -H 'cookie: device_view=tablet; beta_homepage=true'"
+  )
+
+  bad_two_hundreds=()
+  two_hundreds=(
+    "curl -si '$origin/?device_view=desktop'"
+    "curl -si '$origin/?device_view=smartphone' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/?device_view=smartphone'"
+    "curl -si '$origin/?device_view=tablet'"
+    "curl -si '$origin/' -H 'cookie: device_view=desktop'"
+    "curl -si '$origin/' -H 'cookie: device_view=smartphone; beta_homepage=true'"
+    "curl -si '$origin/' -H 'cookie: device_view=smartphone'"
+    "curl -si '$origin/' -H 'cookie: device_view=tablet'"
+    "curl -si '$origin/beta/?device_view=desktop' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/beta/?device_view=tablet' -H 'cookie: beta_homepage=true'"
+    "curl -si '$origin/beta/' -H 'cookie: device_view=desktop; beta_homepage=true'"
+    "curl -si '$origin/beta/' -H 'cookie: device_view=tablet; beta_homepage=true'"
+  )
+
+  bad_four_o_fours=()
+  four_o_fours=(
+    "curl -si '$origin/asdfasdfasdfasfsdaasfdsdfaffsd?device_view=smartphone'"
+  )
+
+  is_ok=true
+  for two_hundred in "${two_hundreds[@]}"; do
+    response_code=$(eval "$two_hundred" | ggrep HTTP | head -n 1)
+    wtf=$(echo "$response_code" | ggrep 200)
+    if [ '' == "$wtf" ]; then
+      is_ok=false
+      bad_two_hundreds+=("$two_hundred")
+      echo "this should be a 200: $two_hundred, returned $response_code"
+    fi
+  done
+
+  for three_o_one in "${three_o_ones[@]}"; do
+    response_code=$(eval "$three_o_one" | ggrep HTTP | head -n 1)
+    wtf=$(echo "$response_code" | ggrep 301)
+    if [ '' == "$wtf" ]; then
+      is_ok=false
+      bad_three_o_ones+=("$three_o_one")
+      echo "this should be a 301: $three_o_one, returned $response_code"
+    fi
+  done
+
+  for three_o_two in "${three_o_twos[@]}"; do
+    response_code=$(eval "$three_o_two" | ggrep HTTP | head -n 1)
+    wtf=$(echo "$response_code" | ggrep 302)
+    if [ '' == "$wtf" ]; then
+      is_ok=false
+      bad_three_o_twos+=("$three_o_two")
+      echo "this should be a 302: $three_o_two, returned $response_code"
+    fi
+  done
+
+  for four_o_four in "${four_o_fours[@]}"; do
+    response_code=$(eval "$four_o_four" | ggrep HTTP | head -n 1)
+    wtf=$(echo "$response_code" | ggrep 404)
+    if [ '' == "$wtf" ]; then
+      is_ok=false
+      bad_four_o_fours+=("$four_o_four")
+      echo "this should be a 404: $four_o_four, returned $response_code"
+    fi
+  done
+
+  if [ "$is_ok" = true ]; then
+    echo 'all good!'
+  fi
+}
+
+main "$1"

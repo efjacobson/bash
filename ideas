@@ -1,0 +1,4 @@
+#! /bin/bash
+
+idea='bak: $(cp ./remaining-videos-ids-duration-sort.json \"./remaining-videos-ids-duration-sort.json.$(date +%s).bak\")'
+printf '%s' "$idea"

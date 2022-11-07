@@ -1,12 +1,12 @@
 #! /bin/bash
 
-# COMMAND="rm composer.lock"
-# echo "Running: $COMMAND"
-# echo $COMMAND | bash
+COMMAND="rm composer.lock"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
 
-# COMMAND="rm package-lock.json"
-# echo "Running: $COMMAND"
-# echo $COMMAND | bash
+COMMAND="rm package-lock.json"
+echo "Running: $COMMAND"
+echo $COMMAND | bash
 
 COMMAND="rm -rf node_modules/"
 echo "Running: $COMMAND"
